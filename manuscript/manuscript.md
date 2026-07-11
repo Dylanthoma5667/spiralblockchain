@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This paper presents a working proof-of-concept for a reputation-weighted financial settlement model designed for permissioned environments. The implementation uses a simple scoring framework to quantify participant trust on the basis of compliance, performance, availability, and settlement quality. The resulting trust-weighted validation score is then used to rank participants and illustrate how reputation-based governance can influence validation outcomes. The simulation produces concrete numerical results for three representative institutional actors. Bank_A achieves the highest reputation and validation score, followed by Custodian_C and Bank_B. These findings support the idea that a reputation-based mechanism can provide a measurable and auditable basis for weighting validation influence in a regulated financial setting.
+This paper presents a working proof-of-concept for a reputation-weighted financial settlement model designed for permissioned environments. The implementation uses a simple scoring framework to quantify participant trust on the basis of compliance, performance, availability, and settlement quality. The resulting trust-weighted validation score is then used to rank participants and illustrate how reputation-based governance can influence validation outcomes. The simulation produces concrete numerical results for three representative institutional actors. Bank_A achieves the highest reputation and validation score, followed by Custodian_C and Bank_B. These findings support the idea that a reputation-based mechanism can provide a measurable and auditable basis for weighting validation influence in a regulated financial setting. The framework also incorporates a demurrage-inspired liquidity mechanism and is framed as a Byzantine-fault-tolerant design for institutional resilience.
 
 ## Keywords
 
@@ -43,6 +43,12 @@ $$R_i = \alpha C_i + \beta P_i + \gamma A_i + \delta S_i$$
 
 where $C_i$ denotes compliance, $P_i$ denotes performance, $A_i$ denotes availability, and $S_i$ denotes settlement quality. The resulting reputation score is then combined with a logarithmic transaction-volume term to obtain a trust-weighted validation score.
 
+To extend the framework beyond pure reputation, the model also introduces a demurrage-inspired circulation mechanism. In a simplified form, the effective value of a balance held by participant $i$ at time $t$ is written as:
+
+$$V_i(t) = V_i(0)e^{-\lambda t}$$
+
+where $\lambda$ is the demurrage rate. This formulation is intended to discourage passive hoarding and reward circulation, while remaining compatible with a permissioned and auditable governance structure. In resilience terms, the architecture is framed as a Byzantine-fault-tolerant design because it assumes that a subset of participants may behave incorrectly or maliciously, yet the system can still preserve integrity through reputation-weighted validation and quorum-based trust constraints.
+
 The implementation is intentionally transparent and reproducible. The exact scoring logic is provided in the repository and can be executed directly with Python.
 
 ## Results
@@ -57,9 +63,9 @@ These results indicate that the highest-scoring participant also receives the hi
 
 ## Discussion
 
-The framework is intended to function as an interoperable layer rather than a complete replacement for existing financial infrastructures. Its principal value lies in providing a transparent and auditable mechanism for weighting institutional participation in regulated workflows. In the context of OTC derivatives, where operational errors and reconciliation delays can materially increase risk, even a lightweight reputation model may improve governance quality and decision consistency.
+The framework is intended to function as an interoperable layer rather than a complete replacement for existing financial infrastructures. Its principal value lies in providing a transparent and auditable mechanism for weighting institutional participation in regulated workflows. In the context of OTC derivatives, where operational errors and reconciliation delays can materially increase risk, even a lightweight reputation model may improve governance quality and decision consistency. The incorporation of a Gesell-inspired demurrage logic further introduces a liquidity discipline that may reduce idle balance accumulation, while the Byzantine-fault-tolerant framing strengthens the argument for resilience under faulty or adversarial participation.
 
-At the same time, the study is limited by its simulated nature. Future work should extend the model with real market data, explicit governance thresholds, and formal stress testing under higher transaction volumes.
+At the same time, the study is limited by its simulated nature. Future work should extend the model with real market data, explicit governance thresholds, formal Byzantine-failure scenarios, and calibrated demurrage parameters under higher transaction volumes.
 
 ## Conclusion
 
