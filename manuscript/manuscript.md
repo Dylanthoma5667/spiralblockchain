@@ -23,7 +23,7 @@ G20 - Financial Institutions and Services
 
 Financial institutions increasingly operate in environments characterized by high transaction volume, complex counterparty relationships, and growing regulatory scrutiny. In this context, the efficiency of settlement, reconciliation, and risk monitoring has become a strategic determinant of competitiveness. Traditional infrastructures often struggle to maintain performance when faced with rising data complexity, distributed participants, and the need for near-real-time coordination.
 
-The present work addresses this issue through a lightweight simulation that operationalizes a reputation-weighted validation mechanism. The model is intentionally simple and reproducible, making it suitable as a first step toward a more complete settlement or reconciliation architecture for OTC-derivative workflows.
+The present work addresses this issue through a lightweight simulation implemented in the associated GitHub repository, which operationalizes a reputation-weighted validation mechanism. The repository provides the executable code, the parameterization of the model, and the numerical outputs that support the analysis. The model is intentionally simple and reproducible, making it suitable as a first step toward a more complete settlement or reconciliation architecture for OTC-derivative workflows.
 
 ## Literature review
 
@@ -49,7 +49,7 @@ $$V_i(t) = V_i(0)e^{-\lambda t}$$
 
 where $\lambda$ is the demurrage rate. This formulation is intended to discourage passive hoarding and reward circulation, while remaining compatible with a permissioned and auditable governance structure. In resilience terms, the architecture is framed as a Byzantine-fault-tolerant design because it assumes that a subset of participants may behave incorrectly or maliciously, yet the system can still preserve integrity through reputation-weighted validation and quorum-based trust constraints.
 
-The implementation is intentionally transparent and reproducible. The exact scoring logic is provided in the repository and can be executed directly with Python.
+The implementation is intentionally transparent and reproducible. The exact scoring logic is provided in the associated GitHub repository and can be executed directly with Python. The repository therefore functions as both a research artifact and a reference implementation for the proposed governance mechanism.
 
 ## Results
 
@@ -69,7 +69,7 @@ At the same time, the study is limited by its simulated nature. Future work shou
 
 ## Conclusion
 
-This paper presents a reproducible proof-of-concept for a reputation-weighted settlement architecture. By combining a simple scoring framework with a permissioned governance structure, the model provides a measurable and auditable approach to shaping participant influence. The simulation demonstrates that reputation can be operationalized in a practical way and used as a foundation for more sophisticated financial infrastructure designs.
+This paper presents a reproducible proof-of-concept for a reputation-weighted settlement architecture. By combining a simple scoring framework with a permissioned governance structure, the model provides a measurable and auditable approach to shaping participant influence. The simulation demonstrates that reputation can be operationalized in a practical way and used as a foundation for more sophisticated financial infrastructure designs. The associated GitHub repository makes the experiment fully inspectable and reusable for future research.
 
 ## Declarations of Interest
 
