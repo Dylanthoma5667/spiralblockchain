@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This paper presents a working proof-of-concept for a reputation-weighted financial settlement model designed for permissioned environments. The implementation uses a simple scoring framework to quantify participant trust on the basis of compliance, performance, availability, and settlement quality. The resulting trust-weighted validation score is then used to rank participants and illustrate how reputation-based governance can influence validation outcomes. The simulation produces concrete numerical results for three representative institutional actors. Bank_A achieves the highest reputation and validation score, followed by Custodian_C and Bank_B. These findings support the idea that a reputation-based mechanism can provide a measurable and auditable basis for weighting validation influence in a regulated financial setting. The framework also incorporates a demurrage-inspired liquidity mechanism and is framed as a Byzantine-fault-tolerant design for institutional resilience.
+This paper presents a working proof-of-concept for a reputation-weighted financial settlement model designed for permissioned environments. The study introduces a lightweight governance framework that combines reputation-based validation, a demurrage-inspired liquidity mechanism, and a Byzantine-fault-tolerant design rationale. The implementation quantifies participant trust on the basis of compliance, performance, availability, and settlement quality, and translates those indicators into trust-weighted validation scores. A reproducible simulation of three representative institutional actors produces concrete numerical results, showing that higher reputation is associated with higher trust-weighted validation influence. The findings suggest that reputation can serve as a measurable and auditable basis for governance in regulated settlement and reconciliation workflows.
 
 ## Keywords
 
@@ -74,6 +74,10 @@ This paper presents a reproducible proof-of-concept for a reputation-weighted se
 ## Declarations of Interest
 
 The authors report no conflicts of interest. The authors alone are responsible for the content and writing of the paper.
+
+## Artificial Intelligence Use
+
+The authors used AI-assisted tools for language refinement and formatting support during manuscript preparation. The conceptual framework, analysis, and conclusions remain the responsibility of the authors.
 
 ## Acknowledgements
 
